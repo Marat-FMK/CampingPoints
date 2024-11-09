@@ -20,9 +20,13 @@ extension ContentView {
     class ViewModel {
         private(set) var locations: [Location]
         var selectedPlace: Location?
-        var isUnlocked = true
+        var isUnlocked = false
         
         var mapStyle = MapStyle.standart
+        
+        var alertTitle = ""
+        var alertMessage = ""
+        var showAlert = false
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
@@ -72,7 +76,9 @@ extension ContentView {
                     if success {
                         self.isUnlocked = true
                     } else  {
-                        // err
+                        self.alertTitle = "no face *)"
+                        self.alertMessage = "give iphone her owner"
+                        self.showAlert = true
                     }
                 }
             } else {
