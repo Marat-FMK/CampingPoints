@@ -39,7 +39,7 @@ struct EditView: View {
                                 .font(.headline)
                             + Text(": ") + // + обьеденят текстовые блоки 
                             Text(page.description)
-                                .italic() // курсив
+                                .italic() // курсив 
                         }
                     case .loading:
                         Text("Loading…")
