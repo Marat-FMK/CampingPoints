@@ -16,13 +16,15 @@ extension EditView {
     @Observable
     class ViewModel {
         
-        var loadingState = Loading.loading
+        var loadingState = Loading.loaded
         var pages = [Page]()
         
         var location: Location = Location(id: UUID(), name: "loc", description: "disc", latitude: 234, longitude: 51)
         
+        
+        
         func fetchNearbyPlaces() async {
-            let urlString = "https://en.wikipedia.org/w/api.php?ggscoord=\(location.latitude)%7C\(location.longitude)&action=query&prop=coordinates%7Cpageimages%7Cpageterms&colimit=50&piprop=thumbnail&pithumbsize=500&pilimit=50&wbptterms=description&generator=geosearch&ggsradius=10000&ggslimit=50&format=json"
+            let urlString = "https://en.wikipedia.org/w/api.php?ggscoord=\(51.501)%7C\(-0.141)&action=query&prop=coordinates%7Cpageimages%7Cpageterms&colimit=50&piprop=thumbnail&pithumbsize=500&pilimit=50&wbptterms=description&generator=geosearch&ggsradius=10000&ggslimit=50&format=json"
 
             guard let url = URL(string: urlString) else {
                 print("Bad URL: \(urlString)")
@@ -40,6 +42,7 @@ extension EditView {
                 loadingState = .loaded
             } catch {
                 // if we're still here it means the request failed somehow
+                print(" bad url")
                 loadingState = .failed
             }
         }
