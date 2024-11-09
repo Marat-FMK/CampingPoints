@@ -24,7 +24,7 @@ struct EditView: View {
     var onSave: (Location) -> Void
     
 //    @State private var loadingState = LoadingState.loading
-    @State private var pages = [Page]()
+//    @State private var pages = [Page]()
 
     var body: some View {
         NavigationStack {
@@ -36,7 +36,7 @@ struct EditView: View {
                 Section("Nearby…") {
                     switch viewModel.loadingState {
                     case .loaded:
-                        ForEach(pages, id: \.pageid) { page in
+                        ForEach(viewModel.pages, id: \.pageid) { page in
                             Text(page.title)
                                 .font(.headline)
                             + Text(": ") + // + обьеденят текстовые блоки 
