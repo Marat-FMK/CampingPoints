@@ -12,7 +12,7 @@ import Foundation
 
 enum MapStyle: String {
     case hybrid = "Hybrid"
-    case standart = "Standart"
+    case standart = "Standart" 
 }
 
 extension ContentView {
