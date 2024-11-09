@@ -23,7 +23,7 @@ struct EditView: View {
     @State private var description: String
     var onSave: (Location) -> Void
     
-    @State private var loadingState = viewModel.loadingState
+//    @State private var loadingState = LoadingState.loading
     @State private var pages = [Page]()
 
     var body: some View {
@@ -34,7 +34,7 @@ struct EditView: View {
                     TextField("Description", text: $description)
                 }
                 Section("Nearby…") {
-                    switch loadingState {
+                    switch viewModel.loadingState {
                     case .loaded:
                         ForEach(pages, id: \.pageid) { page in
                             Text(page.title)
